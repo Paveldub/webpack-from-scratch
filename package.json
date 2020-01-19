@@ -1,0 +1,21 @@
+{
+	"name": "webpack",
+	"version": "1.0.0",
+	"description": "webpack from scratch",
+	"main": "index.js",
+	"author": "Pavel dub <dubstr1@gmail.com>",
+	"license": "MIT",
+	"private": true,
+	"scripts": {
+		"dev": "webpack --mode development",
+		"build": "webpack --mode production"
+	},
+	"devDependencies": {
+		"clean-webpack-plugin": "^3.0.0",
+		"html-webpack-plugin": "^3.2.0",
+		"webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "css-loader": "^3.4.2",
+		"style-loader": "^1.1.3"
+	}
+}
