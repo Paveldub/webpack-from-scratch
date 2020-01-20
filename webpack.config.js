@@ -19,7 +19,10 @@ module.exports = {
             '.png',
             '.csv',
             '.css'
-        ]
+        ],
+        alias: {
+            '@': path.resolve(__dirname, 'src')
+        }
     },
     plugins: [
         new HTMLWebpackPlugin({
