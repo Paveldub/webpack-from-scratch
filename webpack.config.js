@@ -12,6 +12,15 @@ module.exports = {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, 'dist')
     },
+    resolve: {
+        extensions: [
+            '.js',
+            '.json',
+            '.png',
+            '.csv',
+            '.css'
+        ]
+    },
     plugins: [
         new HTMLWebpackPlugin({
             template: './index.html'
