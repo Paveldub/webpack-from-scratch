@@ -6,7 +6,7 @@ body {
 }
 
 .logo {
-    background-image: url('../webpack-logo.png');
+    background-image: url('../assets/webpack-logo.png');
     background-size: cover;
     height: 200px;
     width: 200px;
