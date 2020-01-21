@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
+const sass = require('node-sass');
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
@@ -22,9 +23,11 @@ const optimization = () => {
             new TerserWebpackPlugin()
         ]
     }
-    
+
     return config;
 }
+
+const fileName = ext => isDev ? `[name].${ext}` : `[name].[hash].{ext}`;
 
 module.exports = {
 	context: path.resolve(__dirname, 'src'),
@@ -33,11 +36,11 @@ module.exports = {
 		main: './index.js'
 	},
 	output: {
-		filename: '[name].bundle.js',
+		filename: fileName('js'),
 		path: path.resolve(__dirname, 'dist')
 	},
 	resolve: {
-		extensions: [ '.js', '.json', '.png', '.csv', '.css', '.less', '.sass' ],
+		extensions: [ '.js', '.json', '.png', '.csv', '.css', '.scss' ],
 		alias: {
 			'@': path.resolve(__dirname, 'src')
 		}
@@ -62,7 +65,7 @@ module.exports = {
 			}
 		]),
 		new MiniCssExtractPlugin({
-			filename: '[name].bundle.css'
+			filename: fileName('css')
 		})
 	],
 	module: {
@@ -78,6 +81,20 @@ module.exports = {
 						}
 					},
 					'css-loader'
+				]
+            },
+            {
+				test: /\.s[ac]ss$/i,
+				use: [
+					{
+						loader: MiniCssExtractPlugin.loader,
+						options: {
+							hmr: isDev,
+							reloadAll: true
+						}
+					},
+                    'css-loader',
+                    'sass-loader'
 				]
 			},
 			{

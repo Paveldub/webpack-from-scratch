@@ -3,7 +3,7 @@
 // import xmlFile from './assets/data.xml';
 import csvFile from './assets/data';
 import './styles/styles.css';
-
+import './styles/styles.scss';
 
 // console.log(firstConsole);
 // console.log('JSON:', json);
