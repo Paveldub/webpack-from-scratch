@@ -9,7 +9,7 @@ module.exports = {
         main: './index.js',
     },
     output: {
-        filename: '[name].[contenthash].js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
     resolve: {
@@ -23,6 +23,14 @@ module.exports = {
         alias: {
             '@': path.resolve(__dirname, 'src')
         }
+    },
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        }
+    },
+    devServer: {
+        port: 4200
     },
     plugins: [
         new HTMLWebpackPlugin({

@@ -4,3 +4,4 @@
 2. yarn run dev
 3. yarn run build
 4. yarn run watch 
+5. yarn start (webpack-dev-server)
