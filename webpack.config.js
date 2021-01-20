@@ -109,7 +109,6 @@ const plugins = () => {
 
 module.exports = {
   context: path.resolve(__dirname, "src"),
-  devtool: "source-map",
   mode: "development",
   entry: {
     main: ["./index.tsx"],
