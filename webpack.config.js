@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+const portFinderSync = require("portfinder-sync");
 
 const isDev = process.env.NODE_ENV === "development";
 const isProd = !isDev;
@@ -134,7 +135,7 @@ module.exports = {
   },
   optimization: optimization(),
   devServer: {
-    port: 3000,
+    port: portFinderSync.getPort(3000),
     hot: isDev,
     historyApiFallback: true,
   },

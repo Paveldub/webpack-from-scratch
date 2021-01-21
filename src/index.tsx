@@ -3,15 +3,22 @@ import "./styles/styles.scss";
 
 import React from "react";
 import { render } from "react-dom";
+import logo from "./assets/webpack-logo";
+import { ClickCounter } from "./clickCounter";
 
 const App = () => (
   <div className="container">
-    <h1>Webpack Course</h1>
+    <h1>Webpack builder</h1>
     <hr />
-    <div className="logo" />
+    <div className="logo">
+      <img src={logo} alt="" />
+    </div>
     <pre />
     <div className="box">
-      <h2>Sass example</h2>
+      <h2>styles example</h2>
+    </div>
+    <div className="btn-wrapper">
+      <ClickCounter />
     </div>
   </div>
 );
