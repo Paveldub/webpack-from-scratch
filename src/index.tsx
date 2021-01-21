@@ -18,7 +18,7 @@ const App = () => (
       <h2>styles example</h2>
     </div>
     <div className="btn-wrapper">
-      <ClickCounter />
+      <ClickCounter start={1.5} />
     </div>
   </div>
 );
