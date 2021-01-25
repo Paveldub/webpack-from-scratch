@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { action } from "@storybook/addon-actions";
 import { withKnobs, number } from "@storybook/addon-knobs";
 
@@ -9,7 +9,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const ClickCounterButtonStory: React.FC<{}> = () => {
+export const ClickCounterButtonStory: FC<{}> = () => {
   const count = number("Number", 0);
 
   return (
