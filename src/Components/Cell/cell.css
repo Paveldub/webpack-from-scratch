@@ -3,18 +3,19 @@
   height: 25px;
   border: 1px solid;
   display: inline-block;
+  border-radius: 10px;
   line-height: 25px;
   text-align: center;
   margin: 5px;
   vertical-align: bottom;
-  cursor: pointer;
 }
 
 .cell-empty {
   border-color: gray;
+  outline: none;
 }
 
 .cell-filled {
-  border-color: red;
-  color: green;
+  border-color: lightgray;
+  color: gray;
 }

@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import "./cell.css";
 
-export interface CellProps {
+interface CellProps {
   filled: string;
   onClick: (x: number, y: number) => void;
   x: number;

@@ -12,7 +12,7 @@ const App = () => (
     <MainTitleComponet title={"Game of life"} />
     <FieldComponent
       field={[["0", "", "0", "0", "", "0", "0", "", "0", "0", "", "0"]]}
-      onClick={() => console.log("clcked")}
+      onClick={(e) => console.log(e)}
     />
   </div>
 );
