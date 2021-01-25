@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { CellComponent } from "../Cell/Cell";
+import "./field.css";
 
 export interface FieldProps {
   field: string[][];
