@@ -13,6 +13,8 @@ export const ClickCounterButtonStory: React.FC<{}> = () => {
   const count = number("Number", 0);
 
   return (
-    <ClickCounterBtn increment={action("Increment")}>{count}</ClickCounterBtn>
+    <ClickCounterBtn increment={action("IncrementTest")}>
+      {count}
+    </ClickCounterBtn>
   );
 };
