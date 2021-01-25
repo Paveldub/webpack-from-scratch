@@ -3,11 +3,10 @@ import "./shownumber.css";
 
 interface ShowNumber {
   cellNum?: number;
-  onClick?: () => void;
 }
 
-export const ShowNumberComponent: FC<ShowNumber> = ({ cellNum, onClick }) => (
-  <div className="cell-number" onClick={onClick}>
+export const ShowNumberComponent: FC<ShowNumber> = ({ cellNum }) => (
+  <div className="cell-number">
     <span>Number: {cellNum}</span>
   </div>
 );
