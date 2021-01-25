@@ -1,11 +1,9 @@
 import React from "react";
-import { withKnobs } from "@storybook/addon-knobs";
-
 import { MainTitleComponet } from "./Title";
 
 export default {
   title: "TitleComponent",
-  decorators: [withKnobs],
+  component: MainTitleComponet,
 };
 
 export const MainTitleComponetStory: React.FC<{}> = () => {
