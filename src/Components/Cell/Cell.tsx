@@ -11,14 +11,10 @@ export interface CellProps {
 export const CellComponent: FC<CellProps> = ({ filled, x, y, onClick }) => {
   if (filled) {
     return <span className="cell cell-filled">{filled}</span>;
-  } else {
-    return (
-      <button
-        className="cell cell-empty"
-        onClick={() => onClick(x || 0, y || 0)}
-      >
-        {" "}
-      </button>
-    );
   }
+  return (
+    <button className="cell cell-empty" onClick={() => onClick(x || 0, y || 0)}>
+      {" "}
+    </button>
+  );
 };
