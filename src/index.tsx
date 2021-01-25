@@ -10,7 +10,7 @@ import { FieldComponent } from "./Components/Field/Field";
 const App = () => (
   <div className="container">
     <MainTitleComponet title={"Game of life"} />
-    <FieldComponent field={"10"} onClick={() => console.log("clicked")} />
+    <FieldComponent field={[["0"]]} onClick={() => console.log("clicked")} />
   </div>
 );
 
