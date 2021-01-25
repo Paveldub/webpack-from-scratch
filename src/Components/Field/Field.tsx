@@ -8,6 +8,6 @@ interface FieldProps {
 
 export const FieldComponent: FC<FieldProps> = ({ field }) => (
   <div className="field">
-    <CellComponent />
+    <CellComponent clickCell={() => console.log("clicked")} />
   </div>
 );

@@ -3,8 +3,9 @@ import "./cell.css";
 
 interface CellProps {
   cell?: number[][];
+  clickCell: () => void;
 }
 
-export const CellComponent: FC<CellProps> = ({ cell }) => (
-  <div className="cell"></div>
+export const CellComponent: FC<CellProps> = ({ cell, clickCell }) => (
+  <div className="cell" onClick={clickCell}></div>
 );
