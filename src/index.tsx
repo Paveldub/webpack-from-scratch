@@ -1,5 +1,6 @@
 import "./styles/styles.css";
 import "./styles/styles.scss";
+import "./Components/showNumber/shownumber.css";
 
 import React from "react";
 import { render } from "react-dom";
@@ -12,7 +13,7 @@ const App = () => (
   <div className="container">
     <MainTitleComponet title={"Game of life"} />
     <FieldComponent
-      field={[["0", "", "0", "0", "", "0", "0", "", "0", "0", "", "0"]]}
+      field={[["0", "", "0", "0", "", "0", "0", "", "0"]]}
       onClick={(e) => console.log(e)}
     />
     <ShowNumberComponent />

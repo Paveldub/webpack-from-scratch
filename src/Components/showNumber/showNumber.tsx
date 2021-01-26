@@ -2,11 +2,11 @@ import React, { FC } from "react";
 import "./shownumber.css";
 
 interface ShowNumber {
-  cellNum?: number;
+  value?: number;
 }
 
-export const ShowNumberComponent: FC<ShowNumber> = ({ cellNum }) => (
+export const ShowNumberComponent: FC<ShowNumber> = ({ value }) => (
   <div className="cell-number">
-    <span>Number: {cellNum}</span>
+    <span>Number: {value}</span>
   </div>
 );
