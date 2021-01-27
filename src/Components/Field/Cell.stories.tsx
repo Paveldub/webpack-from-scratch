@@ -19,29 +19,29 @@ export const NonFilledCell = () => [
   <CellComponent
     key={2}
     onClick={action("Clicked")}
-    x={number("x", 3)}
-    y={number("y", 4)}
+    x={number("x", 1)}
+    y={number("y", 2)}
   />,
 ];
 
-// export const FilledCellWithX: FC<{}> = () => {
-//   return (
-//     <CellComponent
-//       onClick={action("Cell clicked")}
-//       filled={text("filled with", "x")}
-//       x={number("x", 1)}
-//       y={number("y", 23)}
-//     />
-//   );
-// };
+export const FilledCellWithX: FC<{}> = () => {
+  return (
+    <CellComponent
+      onClick={action("Cell clicked")}
+      children={text("filled with", "x")}
+      x={number("x", 1)}
+      y={number("y", 2)}
+    />
+  );
+};
 
-// export const FilledCellWithY: FC<{}> = () => {
-//   return (
-//     <CellComponent
-//       onClick={action("Cell clicked")}
-//       filled={text("filled with", "y")}
-//       x={number("x", 1)}
-//       y={number("y", 23)}
-//     />
-//   );
-// };
+export const FilledCellWithY: FC<{}> = () => {
+  return (
+    <CellComponent
+      onClick={action("Cell clicked")}
+      children={text("filled with", "y")}
+      x={number("x", 1)}
+      y={number("y", 2)}
+    />
+  );
+};
