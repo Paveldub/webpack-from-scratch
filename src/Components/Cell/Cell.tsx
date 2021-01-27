@@ -1,8 +1,8 @@
 import React, { FC } from "react";
-import "./cell.css";
+// import "./cell.css";
 
 interface CellProps {
-  filled: string;
+  filled?: string;
   onClick: (x: number, y: number) => void;
   x: number;
   y: number;

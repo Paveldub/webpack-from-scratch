@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import { CellComponent } from "../Cell/Cell";
-import { ShowNumberComponent } from "../showNumber/showNumber";
-import "./field.css";
+// import "./field.css";
 
 interface FieldProps {
   field: string[][];
@@ -24,6 +23,5 @@ export const FieldComponent: FC<FieldProps> = ({ field, onClick }) => (
         y !== row.length - 1 ? <br key={y} /> : null,
       ])}
     </div>
-    <ShowNumberComponent />
   </div>
 );

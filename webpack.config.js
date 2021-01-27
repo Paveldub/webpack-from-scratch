@@ -121,6 +121,7 @@ module.exports = {
   resolve: {
     extensions: [
       ".js",
+      ".jsx",
       ".ts",
       ".tsx",
       ".json",
@@ -170,7 +171,7 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: cssLoaders("sass-loader"),
+        use: cssLoaders("css-loader"),
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
