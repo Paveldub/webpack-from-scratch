@@ -7,13 +7,13 @@ import {ContainerStyles} from './index.styles'
 
 
 const App = () => (
-    <ContainerStyles>
-      <MainTitleComponet title={"Game of life"} />
-      <FieldComponent
-        field={[["0", "", "0", "0", "", "0", "0", "", "0"]]}
-        onClick={(e) => console.log(e)}
-      />
-    </ContainerStyles>
+  <ContainerStyles>
+    <MainTitleComponet title={"Game of life"} />
+    <FieldComponent
+      field={[["0", "", "0", "0", "", "0", "0", "", "0"]]}
+      onClick={(e) => console.log(e)}
+    />
+  </ContainerStyles>
 );
 
 render(<App />, document.getElementById("app"));

@@ -10,10 +10,10 @@ interface FieldProps {
 export const FieldComponent: FC<FieldProps> = ({ field, onClick }) => (
   <FieldStyle>
     {field.map((row, y) => [
-      ...row.map((filled: string, x) => (
+      ...row.map((children: string, x) => (
         <CellComponent
           key={`${x}_${y}`}
-          filled={filled}
+          children={children}
           x={x}
           y={y}
           onClick={onClick}
