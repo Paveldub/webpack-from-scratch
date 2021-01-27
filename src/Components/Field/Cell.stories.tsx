@@ -22,6 +22,12 @@ export const NonFilledCell = () => [
     x={number("x", 1)}
     y={number("y", 2)}
   />,
+  <CellComponent
+    key={3}
+    onClick={action("Clicked")}
+    x={number("x", 1)}
+    y={number("y", 2)}
+  />,
 ];
 
 export const FilledCellWithX: FC<{}> = () => {
