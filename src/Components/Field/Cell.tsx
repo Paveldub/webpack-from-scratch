@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { CellStyles } from "./Cell.styles";
 
 interface CellProps {
-  filled?: string;
+  children?: string;
   onClick: (x: number, y: number) => void;
   x: number;
   y: number;

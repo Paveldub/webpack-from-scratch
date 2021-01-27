@@ -2,8 +2,6 @@ const path = require("path");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const portFinderSync = require("portfinder-sync");
@@ -19,35 +17,13 @@ const optimization = () => {
   };
 
   if (isProd) {
-    config.minimizer = [
-      new OptimizeCssAssetsWebpackPlugin(),
-      new TerserWebpackPlugin(),
-    ];
+    config.minimizer = [new TerserWebpackPlugin()];
   }
 
   return config;
 };
 
 const fileName = (ext) => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`);
-
-const cssLoaders = (extra) => {
-  const loaders = [
-    {
-      loader: MiniCssExtractPlugin.loader,
-      options: {
-        hmr: isDev,
-        reloadAll: true,
-      },
-    },
-    "css-loader",
-  ];
-
-  if (extra) {
-    loaders.push(extra);
-  }
-
-  return loaders;
-};
 
 const babelOptions = (preset) => {
   const opts = {
@@ -92,9 +68,6 @@ const plugins = () => {
         to: path.resolve(__dirname, "dist"),
       },
     ]),
-    new MiniCssExtractPlugin({
-      filename: fileName("css"),
-    }),
   ];
 
   if (isProd) {
@@ -119,17 +92,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
   },
   resolve: {
-    extensions: [
-      ".js",
-      ".jsx",
-      ".ts",
-      ".tsx",
-      ".json",
-      ".png",
-      ".csv",
-      ".css",
-      ".scss",
-    ],
+    extensions: [".js", ".jsx", ".ts", ".tsx", ".json", ".png", ".csv"],
     alias: {
       "@": path.resolve(__dirname, "src"),
     },
@@ -164,14 +127,6 @@ module.exports = {
           loader: "babel-loader",
           options: babelOptions("@babel/preset-react"),
         },
-      },
-      {
-        test: /\.css$/,
-        use: cssLoaders(),
-      },
-      {
-        test: /\.s[ac]ss$/i,
-        use: cssLoaders("css"),
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
