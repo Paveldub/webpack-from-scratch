@@ -5,3 +5,4 @@
 3. jest
 4. storybook
 5. loki
+6. emotion for styles
