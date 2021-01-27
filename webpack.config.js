@@ -171,7 +171,7 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: cssLoaders("css-loader"),
+        use: cssLoaders("css"),
       },
       {
         test: /\.(png|jpe?g|gif)$/i,

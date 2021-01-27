@@ -15,6 +15,7 @@ export const NonFilledCell: FC<{}> = () => {
       onClick={action("Cell clicked")}
       x={number("x", 1)}
       y={number("y", 23)}
+      key={1}
     />
   );
 };

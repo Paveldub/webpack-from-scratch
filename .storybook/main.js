@@ -34,12 +34,6 @@ module.exports = {
         ...config.module,
         rules: [...config.module.rules, ...custom.module.rules],
       },
-      plugins: [
-        new MiniCssExtractPlugin({
-          filename: "css",
-        }),
-        ...config.plugins
-      ]
     };
   },
 };
