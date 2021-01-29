@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { CellComponent } from "./Cell";
-import { FieldStyle } from "./Field.styles";
+import { MainFieldStyle } from "./Field.styles";
 
 interface FieldProps {
   field: string[][];
@@ -8,9 +8,9 @@ interface FieldProps {
 }
 
 export const FieldComponent: FC<FieldProps> = ({ field, onClick }) => (
-  <FieldStyle>
+  <MainFieldStyle>
     {field.map((row, y) => [
-      ...row.map((children: string, x) => (
+      row.map((children: string, x) => (
         <CellComponent
           key={`${x}_${y}`}
           filled={children}
@@ -21,5 +21,5 @@ export const FieldComponent: FC<FieldProps> = ({ field, onClick }) => (
       )),
       y !== row.length - 1 ? <br key={y} /> : null,
     ])}
-  </FieldStyle>
+  </MainFieldStyle>
 );

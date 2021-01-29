@@ -1,7 +1,9 @@
 import React, { FC } from "react";
 
-interface Title {
+interface TitleProps {
   title: string;
 }
 
-export const MainTitleComponet: FC<Title> = ({ title }) => <h1>{title}</h1>;
+export const MainTitleComponet: FC<TitleProps> = ({ title }) => (
+  <h1>{title}</h1>
+);
