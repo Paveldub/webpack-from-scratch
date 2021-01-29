@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/core";
 
-const MainCellClassName = css`
+const mainCellClassName = css`
   width: 25px;
   height: 25px;
   border: 1px solid;
@@ -28,6 +28,6 @@ interface IsFilledProps {
 }
 
 export const CellStyles = styled.button`
-  ${MainCellClassName};
+  ${mainCellClassName};
   ${({ isFilled }: IsFilledProps) => (isFilled ? IfFilledCell : IfEmptyCell)}
 `;
