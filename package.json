@@ -18,6 +18,12 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
+    "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "lint-staged"
+    }
+  },
   "browserslist": "> 0.25%, not dead",
   "devDependencies": {
     "@babel/core": "^7.9.0",
