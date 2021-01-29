@@ -9,20 +9,16 @@ export default {
   decorators: [withKnobs],
 };
 
-export const NonFilledCell = () => [
-  <CellComponent
-    key={1}
-    onClick={action("Clicked")}
-    x={number("x", 1)}
-    y={number("y", 2)}
-  />,
-  <CellComponent
-    key={2}
-    onClick={action("Clicked")}
-    x={number("x", 1)}
-    y={number("y", 2)}
-  />,
-];
+export const NonFilledCell: FC<{}> = () => {
+  return (
+    <CellComponent
+      key={1}
+      onClick={action("Clicked")}
+      x={number("x", 1)}
+      y={number("y", 2)}
+    />
+  );
+};
 
 export const FilledCellWithX: FC<{}> = () => {
   return (
