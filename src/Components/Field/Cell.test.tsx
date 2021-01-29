@@ -8,7 +8,7 @@ describe("test cell component", () => {
     const onClick = jest.fn();
 
     const cellClick = shallow(
-      <CellComponent x={1} y={1} onClick={onClick}></CellComponent>
+      <CellComponent onClick={onClick} x={1} y={1}></CellComponent>
     );
 
     cellClick.simulate("click");
