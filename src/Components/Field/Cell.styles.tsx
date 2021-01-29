@@ -18,7 +18,7 @@ const IfEmptyCell = css`
   outline: none;
 `;
 
-const IfilledCell = css`
+const IfFilledCell = css`
   border-color: lightgray;
   color: gray;
 `;
@@ -29,5 +29,5 @@ interface IsFilledProps {
 
 export const CellStyles = styled.button`
   ${MainCellClassName};
-  ${({ isFilled }: IsFilledProps) => (isFilled ? IfilledCell : IfEmptyCell)}
+  ${({ isFilled }: IsFilledProps) => (isFilled ? IfFilledCell : IfEmptyCell)}
 `;

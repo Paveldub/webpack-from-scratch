@@ -3,8 +3,7 @@ import { render } from "react-dom";
 
 import { MainTitleComponet } from "./Components/Field/Title";
 import { FieldComponent } from "./Components/Field/Field";
-import {ContainerStyles} from './index.styles'
-
+import { ContainerStyles } from "./index.styles";
 
 const App = () => (
   <ContainerStyles>

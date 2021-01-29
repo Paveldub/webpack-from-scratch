@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const custom = require('../webpack.config.js');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   stories: ['../src/**/*.stories.tsx'],

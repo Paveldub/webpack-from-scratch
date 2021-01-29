@@ -13,7 +13,7 @@ export const FieldComponent: FC<FieldProps> = ({ field, onClick }) => (
       ...row.map((children: string, x) => (
         <CellComponent
           key={`${x}_${y}`}
-          children={children}
+          filled={children}
           x={x}
           y={y}
           onClick={onClick}
