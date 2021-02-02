@@ -19,13 +19,13 @@
     "build-storybook": "build-storybook"
   },
     "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint",
-      "pre-push": "lint-staged"
-    }
+      "hooks": {
+        "pre-commit": "npm run lint",
+        "pre-push": "lint-staged"
+      }
   },
     "lint-staged": {
-    "*.{js,ts,tsx,json,html,css,md,yml,yaml}": [
+    "*.{tsx}": [
       "npm run test",
       "npm run lint"
     ]
