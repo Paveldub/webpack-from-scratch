@@ -21,11 +21,11 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint",
-      "pre-push": "lint-staged"
+      "pre-push": "npm run test && npm run lint"
     }
   },
   "lint-staged": {
-    "*.{js,ts,tsx,json,html,css,md,yml,yaml}": [
+    "*.{tsx}": [
       "npm run test",
       "npm run lint"
     ]
