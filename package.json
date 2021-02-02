@@ -18,17 +18,17 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-    "lint-staged": {
-    "*.{tsx}": [
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,json,html,css,md,yml,yaml}": [
       "npm run test",
       "npm run lint"
     ]
-  },
-    "husky": {
-      "hooks": {
-        "pre-commit": "npm run lint",
-        "pre-push": "lint-staged"
-      }
   },
   "browserslist": "> 0.25%, not dead",
   "devDependencies": {
