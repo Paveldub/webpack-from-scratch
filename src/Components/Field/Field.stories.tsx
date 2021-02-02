@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { action } from "@storybook/addon-actions";
 import { withKnobs, object } from "@storybook/addon-knobs";
 import { FieldComponent } from "./Field";
@@ -24,7 +24,7 @@ export const EmptyField = () => [
 export const NonEmptyField = () => [
   <FieldComponent
     onClick={action("Clicked")}
-    key={1}
+    key={2}
     field={object("field", [
       ["x", "", "o"],
       ["", "o", ""],
