@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { CellStyles } from "./Cell.styles";
+import { Cell } from "./Cell.styles";
 
 interface CellProps {
   filled?: string;
@@ -17,8 +17,8 @@ export const CellComponent: FC<CellProps> = ({
   const isFilled = Boolean(filled);
 
   return (
-    <CellStyles isFilled={isFilled} onClick={() => !isFilled && onClick(x, y)}>
+    <Cell isFilled={isFilled} onClick={() => !isFilled && onClick(x, y)}>
       {filled}
-    </CellStyles>
+    </Cell>
   );
 };

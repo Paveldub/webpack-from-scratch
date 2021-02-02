@@ -27,7 +27,7 @@ interface IsFilledProps {
   isFilled: boolean;
 }
 
-export const CellStyles = styled.button`
+export const Cell = styled.button`
   ${mainCellClassName};
   ${({ isFilled }: IsFilledProps) => (isFilled ? IfFilledCell : IfEmptyCell)}
 `;
