@@ -1,17 +1,3 @@
-// import { number } from "@storybook/addon-knobs";
-
-// type FIXME = any;
-
-// const orderStates = [
-//   "initial",
-//   "inWork",
-//   "buyingSupplies",
-//   "producing",
-//   "fullfilled",
-// ] as const;
-
-// // ?????
-
 // interface User<S = number> {
 //   name: string;
 //   age: number;
@@ -118,17 +104,15 @@ const orderStates = [
 ] as const;
 
 type OrderState = typeof orderStates[number];
+type ExcludeOrderState = Exclude<OrderState, string>;
 
 export const getUserOrderStates = (orderStates: OrderState[]): FIXME => {
   const filteredStates = [] as FIXME;
-  
-  orderStates.forEach((element, index) => {
+
+  orderStates.forEach((element) => {
     if (element !== "buyingSupplies" && element !== "producing") {
       filteredStates.push(element);
     }
   });
   return filteredStates;
 };
-
-
-
