@@ -1,26 +1,16 @@
-import React from "react";
+import React, { Component } from "react";
 
-interface Prop {
-  count: number;
-}
+export class Block extends React.Component {
+  state = {
+    count: 0,
+  };
 
-export class CounterBtn extends React.Component<Prop> {
-  constructor(props: Prop) {
-    super(props);
-    this.state = { count: 0 };
-  }
-
-  eventClick = () => {
+  handleClick = () => {
     const { count } = this.state;
-    this.setState(() => ({ count: count + 1 }));
+    this.setState({ count: count + 1 });
   };
 
   render() {
-    return (
-      <>
-        <button onClick={this.eventClick}>Click me!</button>
-        <div>{this.state.count}</div>
-      </>
-    );
+    return <button onClick={this.handleClick}>{this.state.count}</button>;
   }
 }
