@@ -104,7 +104,10 @@ const orderStates = [
 ] as const;
 
 type OrderState = typeof orderStates[number];
-type ExcludeOrderState = Exclude<OrderState, string>;
+
+interface FIXMEProps<FIXME = number> {
+  status: FIXME;
+}
 
 export const getUserOrderStates = (orderStates: OrderState[]): FIXME => {
   const filteredStates = [] as FIXME;
