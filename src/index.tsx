@@ -3,13 +3,13 @@ import "./styles/styles.scss";
 
 import React from "react";
 import { render } from "react-dom";
-
 import { ClickCounter } from "./HW3/1/button";
+import { MainFieldStyle } from "./HW3/1/button.styles";
 
 const App = () => (
-  <div className="container">
+  <MainFieldStyle>
     <ClickCounter />
-  </div>
+  </MainFieldStyle>
 );
 
 render(<App />, document.getElementById("app"));

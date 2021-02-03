@@ -1,8 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import { MainTitleComponet } from "./digit-contaier";
 
 interface Prop {
   count: number;
+  colors: string[];
 }
 
 export class ClickCounter extends React.Component<null, Prop> {
@@ -10,19 +11,23 @@ export class ClickCounter extends React.Component<null, Prop> {
     super(null);
     this.state = {
       count: 0,
+      colors: ["red", "yellow", "blue", "green", "purple", "pink"],
     };
   }
 
   handleClick = () => {
-    const count = this.state.count;
+    const { colors } = this.state;
+    const { count } = this.state;
+    const color = colors[Math.floor(Math.random() * colors.length)];
     this.setState({ count: count + 1 });
+    document.body.style.backgroundColor = color;
   };
 
   render() {
     return (
       <>
-        <button onClick={this.handleClick}>Click me</button>
         <MainTitleComponet digitElem={this.state.count}></MainTitleComponet>
+        <button onClick={this.handleClick}>Click me</button>
       </>
     );
   }
