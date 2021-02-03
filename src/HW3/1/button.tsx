@@ -1,16 +1,29 @@
 import React, { Component } from "react";
+import { MainTitleComponet } from "./digit-contaier";
 
-export class Block extends React.Component {
-  state = {
-    count: 0,
-  };
+interface Prop {
+  count: number;
+}
+
+export class ClickCounter extends React.Component<null, Prop> {
+  constructor() {
+    super(null);
+    this.state = {
+      count: 0,
+    };
+  }
 
   handleClick = () => {
-    const { count } = this.state;
+    const count = this.state.count;
     this.setState({ count: count + 1 });
   };
 
   render() {
-    return <button onClick={this.handleClick}>{this.state.count}</button>;
+    return (
+      <>
+        <button onClick={this.handleClick}>Click me</button>
+        <MainTitleComponet digitElem={this.state.count}></MainTitleComponet>
+      </>
+    );
   }
 }
