@@ -18,36 +18,14 @@ export class MyComponent extends React.Component<null, Prop> {
     const { url, dataArr } = this.state;
     fetch(url)
       .then((response) => response.json())
-      .then((data) =>
-        data.forEach((item) => {
-          console.log(item);
-          this.setState({
-            dataArr: data.item,
-          });
-        })
-      );
+      .then((data) => {
+        this.setState({
+          dataArr: data.dataArr,
+        });
+      });
   }
 
   render() {
     return <h1>text</h1>;
   }
-
-  // render() {
-  // const { error, isLoaded, items } = this.state;
-  // if (error) {
-  //   return <div>Ошибка: {error.message}</div>;
-  // } else if (!isLoaded) {
-  //   return <div>Загрузка...</div>;
-  // } else {
-  //   return (
-  //     <ul>
-  //       {items.map((item) => (
-  //         <li key={item.id}>
-  //           {item.title} {item.id}
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   );
-  // }
-  // }
 }
