@@ -20,6 +20,7 @@ export class MyComponent extends React.Component<null, Prop> {
       .then((response) => response.json())
       .then((data) =>
         data.forEach((item) => {
+          console.log(item);
           this.setState((prevState) => ({
             dataArr: [...prevState.dataArr, this.state.item],
           }));
