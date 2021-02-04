@@ -24,6 +24,7 @@ export class MyComponent extends React.Component<null, Prop> {
           console.log(data);
           this.setState({
             isLoaded: true,
+            // не получается пройти циклом по данным и получить их в коллбэк чтобы передать в dataArr
             dataArr: data.dataArr,
           });
         },
