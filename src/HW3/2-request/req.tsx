@@ -1,7 +1,6 @@
 import React from "react";
 
 interface Prop {
-  url: string;
   dataArr: number[];
 }
 
