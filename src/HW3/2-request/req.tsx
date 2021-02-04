@@ -9,16 +9,15 @@ export class MyComponent extends React.Component<null, Prop> {
   constructor() {
     super(null);
     this.state = {
-      url: "https://jsonplaceholder.typicode.com/users",
       dataArr: [],
     };
   }
 
   componentDidMount() {
-    const { url, dataArr } = this.state;
-    fetch(url)
+    fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         this.setState({
           dataArr: data.dataArr,
         });
