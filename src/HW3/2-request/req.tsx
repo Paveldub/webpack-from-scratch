@@ -21,9 +21,9 @@ export class MyComponent extends React.Component<null, Prop> {
       .then((data) =>
         data.forEach((item) => {
           console.log(item);
-          this.setState((prevState) => ({
-            dataArr: [...prevState.dataArr, this.state.item],
-          }));
+          this.setState({
+            dataArr.push(item)
+          })
         })
       );
   }
