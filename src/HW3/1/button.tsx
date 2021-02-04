@@ -26,7 +26,7 @@ export class ClickCounter extends React.Component<null, Prop> {
   render() {
     return (
       <>
-        <MainTitleComponet digitElem={this.state.count}></MainTitleComponet>
+        <MainTitleComponet digitElem={this.state.count} />
         <button onClick={this.handleClick}>Click me</button>
       </>
     );
