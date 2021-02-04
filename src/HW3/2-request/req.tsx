@@ -1,31 +1,28 @@
 import React from "react";
 
-interface PropData {
-  error: null;
-  isLoaded: boolean;
-  items: number[];
+interface Prop {
+  url: string;
+  dataArr: number[];
 }
 
-export class MyComponent extends React.Component<null, PropData> {
+export class MyComponent extends React.Component<null, Prop> {
   constructor() {
     super(null);
     this.state = {
-      error: null,
-      isLoaded: false,
-      items: [],
+      url: "https://jsonplaceholder.typicode.com/users",
+      dataArr: [],
     };
   }
 
   componentDidMount() {
-    const { items } = this.state;
-    fetch("https://jsonplaceholder.typicode.com/posts")
+    const { url, dataArr } = this.state;
+    fetch(url)
       .then((response) => response.json())
       .then((data) =>
         data.forEach((item) => {
-          console.log(item);
-          this.setState({
-            items,
-          });
+          this.setState((prevState) => ({
+            dataArr: [...prevState.dataArr, this.state.item],
+          }));
         })
       );
   }
