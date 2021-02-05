@@ -1,58 +1,48 @@
 import React from "react";
 
 interface Prop {
-  error: string;
-  dataArr: [];
+  items: [];
   isLoaded: boolean;
 }
 
-export class MyComponent extends React.Component<null, Prop> {
-  constructor() {
-    super(null);
+export class MyComponent extends React.Component<Prop> {
+  constructor(props: Prop) {
+    super(props);
     this.state = {
-      error: "",
-      dataArr: [],
-      isLoaded: false,
+      error: null,
+      items: [],
     };
   }
 
   componentDidMount() {
     fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
+      .then((res) => res.json())
       .then(
-        (data) => {
-          console.log(data);
-          this.setState({
-            isLoaded: true,
-            // не получается пройти циклом по данным и получить их в коллбэк чтобы передать в dataArr
-            dataArr: data.dataArr,
+        (result) => {
+          result.map((itemElem) => {
+            this.setState({
+              items: itemElem,
+            });
           });
         },
         (error) => {
           this.setState({
             isLoaded: true,
-            error: "ERROR",
+            error,
           });
         }
       );
   }
 
   render() {
-    const { error, isLoaded, dataArr } = this.state;
-    if (error) {
-      return <div>Ошибка: {error}</div>;
-    } else if (!isLoaded) {
-      return <div>Загрузка...</div>;
-    } else {
-      return (
-        <ul>
-          {dataArr.map((elem) => {
-            <li key={elem.id}>
-              {elem.name} - {elem.phone}
-            </li>;
-          })}
-        </ul>
-      );
-    }
+    const { items } = this.state;
+
+    return (
+      <ul>
+        <li key={items.id}>
+          {items.name} - {items.phone}
+        </li>
+      </ul>
+    );
   }
 }
