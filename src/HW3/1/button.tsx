@@ -16,8 +16,7 @@ export class ClickCounter extends React.Component<null, Prop> {
   }
 
   handleClick = () => {
-    const { colors } = this.state;
-    const { count } = this.state;
+    const { colors, count } = this.state;
     const color = colors[Math.floor(Math.random() * colors.length)];
     this.setState({ count: count + 1 });
     document.body.style.backgroundColor = color;

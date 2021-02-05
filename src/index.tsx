@@ -9,7 +9,7 @@ import { MyComponent } from "./HW3/2-request/req";
 
 const App = () => (
   <MainFieldStyle>
-    {/* <ClickCounter /> */}
+    <ClickCounter />
     <MyComponent />
   </MainFieldStyle>
 );
