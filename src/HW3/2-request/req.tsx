@@ -1,8 +1,7 @@
 import React from "react";
 
 interface Prop {
-  items: [];
-  isLoaded: boolean;
+  items: number[];
 }
 
 export class MyComponent extends React.Component<Prop> {
@@ -19,15 +18,12 @@ export class MyComponent extends React.Component<Prop> {
       .then((res) => res.json())
       .then(
         (result) => {
-          result.map((itemElem) => {
-            this.setState({
-              items: itemElem,
-            });
+          this.setState({
+            items: result,
           });
         },
         (error) => {
           this.setState({
-            isLoaded: true,
             error,
           });
         }
@@ -39,9 +35,11 @@ export class MyComponent extends React.Component<Prop> {
 
     return (
       <ul>
-        <li key={items.id}>
-          {items.name} - {items.phone}
-        </li>
+        {items.map((item) => (
+          <li key={item.id}>
+            {item.name} - {item.phone}
+          </li>
+        ))}
       </ul>
     );
   }
