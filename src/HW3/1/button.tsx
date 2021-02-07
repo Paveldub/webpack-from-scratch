@@ -15,8 +15,11 @@ export class ClickCounter extends React.Component<Prop> {
 
   handleClick = () => {
     const { count } = this.state;
+
     this.setState((state) => {
-      return { count: state.count + 1 };
+      return {
+        count: state.count + 1,
+      };
     });
   };
 
