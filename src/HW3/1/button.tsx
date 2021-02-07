@@ -5,11 +5,9 @@ interface Prop {
   count: number;
 }
 
-const colors: string[] = ["red", "yellow", "blue", "green", "purple", "pink"];
-
-export class ClickCounter extends React.Component<null, Prop> {
-  constructor() {
-    super(null);
+export class ClickCounter extends React.Component<Prop> {
+  constructor(props: Prop) {
+    super(props);
     this.state = {
       count: 0,
     };
@@ -17,7 +15,6 @@ export class ClickCounter extends React.Component<null, Prop> {
 
   handleClick = () => {
     const { count } = this.state;
-    const color = colors[Math.floor(Math.random() * colors.length)];
     this.setState((state) => {
       return { count: state.count + 1 };
     });
