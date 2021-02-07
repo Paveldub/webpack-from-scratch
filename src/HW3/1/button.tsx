@@ -46,7 +46,7 @@ export class ClickCounter extends React.Component<Prop, BtnColor> {
 
         <button
           onClick={this.handleClick}
-          style={{ backgroundColor: this.state.btnColor }}
+          style={{ backgroundColor: this.state.btnColor.toString() }}
         >
           Click me
         </button>
