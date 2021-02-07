@@ -18,6 +18,16 @@ export class ClickCounter extends React.Component<Prop> {
     };
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.btnColor !== nextProps.btnColor) {
+      return true;
+    }
+    if (this.state.count !== nextState.count) {
+      return true;
+    }
+    return false;
+  }
+
   handleClick = () => {
     const { count, btnColor } = this.state;
 

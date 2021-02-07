@@ -19,7 +19,6 @@ export class MyComponent extends React.Component<Prop> {
       .then((res) => res.json())
       .then(
         (result) => {
-          console.log(result);
           if (_isMounted) {
             this.setState({
               items: result,
