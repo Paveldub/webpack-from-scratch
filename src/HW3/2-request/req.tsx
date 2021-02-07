@@ -4,11 +4,12 @@ interface Prop {
   items: number[];
 }
 
+let _isMounted = true;
+
 export class MyComponent extends React.Component<Prop> {
   constructor(props: Prop) {
     super(props);
     this.state = {
-      error: null,
       items: [],
     };
   }
@@ -18,9 +19,11 @@ export class MyComponent extends React.Component<Prop> {
       .then((res) => res.json())
       .then(
         (result) => {
-          this.setState({
-            items: result,
-          });
+          if (_isMounted) {
+            this.setState({
+              items: result,
+            });
+          }
         },
         (error) => {
           this.setState({
@@ -28,6 +31,10 @@ export class MyComponent extends React.Component<Prop> {
           });
         }
       );
+  }
+
+  componentWillUnmount() {
+    _isMounted = false;
   }
 
   render() {
