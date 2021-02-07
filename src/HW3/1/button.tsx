@@ -3,29 +3,29 @@ import { MainTitleComponet } from "./digit-contaier";
 
 interface Prop {
   count: number;
+}
+
+interface BtnColor {
   btnColor: string[];
 }
 
 const colors = ["red", "yellow", "blue", "green", "purple", "pink"];
 const randomColor = colors[Math.floor(Math.random() * colors.length)];
 
-export class ClickCounter extends React.Component<Prop> {
+export class ClickCounter extends React.Component<Prop, BtnColor> {
   constructor(props: Prop) {
     super(props);
     this.state = {
       count: 0,
-      btnColor: "",
+      btnColor: [],
     };
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    if (this.props.btnColor !== nextProps.btnColor) {
-      return true;
-    }
-    if (this.state.count !== nextState.count) {
-      return true;
-    }
-    return false;
+  shouldComponentUpdate(nextProps: Prop, nextState: BtnColor) {
+    return (
+      this.state.count !== nextState.count ||
+      nextProps.btnColor !== this.state.btnColor
+    );
   }
 
   handleClick = () => {
