@@ -1,7 +1,10 @@
 import React from "react";
+import { ErrorBoundary } from "./errorBoundary";
 
 interface Prop {
   items: number[];
+  error: null;
+  isLoading: boolean;
 }
 
 let _isMounted = true;
@@ -11,26 +14,23 @@ export class MyComponent extends React.Component<Prop> {
     super(props);
     this.state = {
       items: [],
+      error: null,
+      isLoading: true,
     };
   }
 
   componentDidMount() {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((res) => res.json())
-      .then(
-        (result) => {
-          if (_isMounted) {
-            this.setState({
-              items: result,
-            });
-          }
-        },
-        (error) => {
+      .then((result) => {
+        if (_isMounted) {
           this.setState({
-            error,
+            items: result,
+            isLoading: false,
           });
         }
-      );
+      })
+      .catch((error) => this.setState({ error, isLoading: false }));
   }
 
   componentWillUnmount() {
@@ -38,18 +38,26 @@ export class MyComponent extends React.Component<Prop> {
   }
 
   render() {
-    const { items } = this.state;
+    const { isLoading, items, error } = this.state;
 
     return (
-      <ul>
-        {items.map((item) => (
-          <li key={item.id}>
-            <span>
-              {item.name} - {item.phone} - {item.username} - {item.email}
-            </span>
-          </li>
-        ))}
-      </ul>
+      <>
+        {error ? <p>{error.message}</p> : null}
+
+        {!isLoading ? (
+          <ul>
+            {items.map((item) => (
+              <li key={item.id}>
+                <span>
+                  {item.name} - {item.phone} - {item.username} - {item.email}
+                </span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <h3>... preloader...</h3>
+        )}
+      </>
     );
   }
 }

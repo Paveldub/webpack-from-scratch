@@ -3,7 +3,7 @@ import { MainTitleComponet } from "./digit-contaier";
 
 interface Prop {
   count: number;
-  btnColor: string;
+  btnColor: string[];
 }
 
 const colors = ["red", "yellow", "blue", "green", "purple", "pink"];
@@ -43,6 +43,7 @@ export class ClickCounter extends React.Component<Prop> {
     return (
       <>
         <MainTitleComponet digitElem={this.state.count} />
+
         <button
           onClick={this.handleClick}
           style={{ backgroundColor: this.state.btnColor }}
