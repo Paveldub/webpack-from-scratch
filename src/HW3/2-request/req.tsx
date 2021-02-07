@@ -19,6 +19,7 @@ export class MyComponent extends React.Component<Prop> {
       .then((res) => res.json())
       .then(
         (result) => {
+          console.log(result);
           if (_isMounted) {
             this.setState({
               items: result,
@@ -44,7 +45,9 @@ export class MyComponent extends React.Component<Prop> {
       <ul>
         {items.map((item) => (
           <li key={item.id}>
-            {item.name} - {item.phone}
+            <span>
+              {item.name} - {item.phone} - {item.username} - {item.email}
+            </span>
           </li>
         ))}
       </ul>
