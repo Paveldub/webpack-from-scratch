@@ -1,5 +1,4 @@
 import React from "react";
-import { ErrorBoundary } from "./errorBoundary";
 
 interface Prop {
   items: number[];
