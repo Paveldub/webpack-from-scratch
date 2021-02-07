@@ -3,23 +3,24 @@ import { MainTitleComponet } from "./digit-contaier";
 
 interface Prop {
   count: number;
-  colors: string[];
 }
+
+const colors: string[] = ["red", "yellow", "blue", "green", "purple", "pink"];
 
 export class ClickCounter extends React.Component<null, Prop> {
   constructor() {
     super(null);
     this.state = {
       count: 0,
-      colors: ["red", "yellow", "blue", "green", "purple", "pink"],
     };
   }
 
   handleClick = () => {
-    const { colors, count } = this.state;
+    const { count } = this.state;
     const color = colors[Math.floor(Math.random() * colors.length)];
-    this.setState({ count: count + 1 });
-    document.body.style.backgroundColor = color;
+    this.setState((state) => {
+      return { count: state.count + 1 };
+    });
   };
 
   render() {
