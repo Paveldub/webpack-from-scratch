@@ -10,9 +10,8 @@ interface BtnColor {
 }
 
 const colors = ["red", "yellow", "blue", "green", "purple", "pink"];
-const randomColor = colors[Math.floor(Math.random() * colors.length)];
 
-export class ClickCounter extends React.Component<Prop, BtnColor> {
+export class ClickCounter extends React.Component<BtnColor, Prop> {
   constructor(props: Prop) {
     super(props);
     this.state = {
@@ -34,7 +33,7 @@ export class ClickCounter extends React.Component<Prop, BtnColor> {
     this.setState((state) => {
       return {
         count: state.count + 1,
-        btnColor: randomColor,
+        btnColor: colors[Math.floor(Math.random() * colors.length)],
       };
     });
   };
