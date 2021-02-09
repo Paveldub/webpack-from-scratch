@@ -1,39 +1,31 @@
-import React from "react";
+import React, { Component, ReactNode } from "react";
 
-interface Props {
+export interface Props {
+  children: ReactNode;
   hasError: boolean;
-  error: null;
-  info: null;
 }
 
-export class ErrorBoundary extends React.Component<Props> {
+export class ErrorBoundary extends Component<Props> {
   constructor(props: Props) {
     super(props);
     this.state = {
       hasError: false,
-      error: null,
-      info: null,
     };
   }
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError() {
     return { hasError: true };
   }
 
-  componentDidCatch(error, info) {
-    logComponentStackToMyService(info.componentStack);
+  componentDidCatch(error: Error, errorInfo: any) {
+    console.error(error, errorInfo);
   }
 
   render() {
     if (this.state.hasError) {
-      return (
-        <div>
-          <h1>Oops, something went wrong...</h1>
-          <p>The error: {this.state.error.toString()}</p>
-          <p>Where it occured: {this.state.info.componentStack}</p>
-        </div>
-      );
+      return <h1>Something went wrong!!!</h1>;
     }
+
     return this.props.children;
   }
 }
