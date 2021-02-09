@@ -1,5 +1,6 @@
 import React from "react";
 import { MainTitleComponet } from "./digit-contaier";
+// import { randomBtnColor } from "./button.style";
 
 interface Prop {
   count: number;
