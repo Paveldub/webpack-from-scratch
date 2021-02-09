@@ -4,7 +4,7 @@ import { MainTitleComponet } from "./digit-contaier";
 
 interface Prop {
   count: number;
-  btnColor: string[];
+  btnColor: string;
 }
 
 const colors = ["red", "yellow", "blue", "green", "purple", "pink"];
@@ -19,7 +19,7 @@ export class ClickCounter extends React.Component<Prop> {
   }
 
   handleClick = () => {
-    this.setState((state) => {
+    this.setState((state: any) => {
       return {
         count: state.count + 1,
         btnColor: colors[Math.floor(Math.random() * colors.length)],
@@ -28,13 +28,15 @@ export class ClickCounter extends React.Component<Prop> {
   };
 
   render() {
+    const { count, btnColor } = this.state;
+
     return (
       <>
         <MainTitleComponet digitElem={this.state.count} />
 
         <button
           onClick={this.handleClick}
-          style={{ backgroundColor: this.state.btnColor.toString() }}
+          style={{ backgroundColor: this.state.btnColor }}
         >
           Click me
         </button>
