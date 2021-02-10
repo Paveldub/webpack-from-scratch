@@ -17,6 +17,22 @@
         "endOfLine": "auto"
       }
     ],
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "ExportDefaultDeclaration",
+        "message": "Restricted default export, prefer named exports!"
+      }
+    ],
+    "no-console": [
+      "error",
+      {
+        "allow": [
+          "warn",
+          "error"
+        ]
+      }
+    ],
     "@typescript-eslint/explicit-function-return-type": 0,
     "react/prop-types": 0
   },
@@ -32,6 +48,16 @@
       ],
       "rules": {
         "@typescript-eslint/no-var-requires": [
+          "off"
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.stories.tsx"
+      ],
+      "rules": {
+        "no-restricted-syntax": [
           "off"
         ]
       }
