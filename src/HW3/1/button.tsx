@@ -1,6 +1,6 @@
 import React from "react";
 import { MainTitleComponet } from "./digit-contaier";
-// import { randomBtnColor } from "./button.style";
+import { ButtonElem } from "./buttonElem";
 
 interface Prop {
   count: number;
@@ -19,7 +19,7 @@ export class ClickCounter extends React.Component<Prop> {
   }
 
   handleClick = () => {
-    this.setState((state: any) => {
+    this.setState((state: number) => {
       return {
         count: state.count + 1,
         btnColor: colors[Math.floor(Math.random() * colors.length)],
@@ -28,18 +28,14 @@ export class ClickCounter extends React.Component<Prop> {
   };
 
   render() {
-    const { count, btnColor } = this.state;
-
     return (
       <>
         <MainTitleComponet digitElem={this.state.count} />
-
-        <button
-          onClick={this.handleClick}
-          style={{ backgroundColor: this.state.btnColor }}
-        >
-          Click me
-        </button>
+        <ButtonElem
+          content={"click me"}
+          increment={this.handleClick}
+          backgroundColor={this.btnColor}
+        />
       </>
     );
   }
