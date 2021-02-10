@@ -3,15 +3,15 @@ import React, { FC } from "react";
 interface ButtonProps {
   content: string;
   increment: () => void;
-  backgroundColor: any;
+  bgColor: string;
 }
 
 export const ButtonElem: FC<ButtonProps> = ({
   content = 0,
   increment,
-  backgroundColor,
+  bgColor = "",
 }) => (
-  <button onClick={increment} style={backgroundColor}>
+  <button onClick={increment} bgColor={bgColor}>
     {content}
   </button>
 );
