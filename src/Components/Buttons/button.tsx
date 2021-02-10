@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+// import React, { FC } from "react";
 
-interface BtnProp {
-  content: string;
-}
+// interface BtnProp {
+//   content: string;
+// }
 
-export const BtnElem: FC<BtnProp> = {};
+// export const BtnElem: FC<BtnProp> = {};
