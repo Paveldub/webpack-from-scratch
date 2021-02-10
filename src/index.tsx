@@ -9,12 +9,8 @@ import { ContainerStyles } from "./index.styles";
 const App = () => (
   <ContainerStyles>
     <MainTitleComponet title="Board size" />
-    <Button />
 
-    <FieldComponent
-      field={[["0", "", "0", "0", "", "0", "0", "", "0"]]}
-      onClick={(e) => console.log(e)}
-    />
+    <FieldComponent field={[[""]]} onClick={(e) => console.log(e)} />
   </ContainerStyles>
 );
 
